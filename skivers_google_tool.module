@@ -1,0 +1,51 @@
+<?php
+
+/*
+  @author surf
+ * */
+
+define('SKIVERS_GOOGLE_TOOL_ADMIN', 'admin/config/skivers/skivers_google_tool');
+
+function skivers_google_tool_menu()
+{
+
+    $items[SKIVERS_GOOGLE_TOOL_ADMIN] = array(
+        'title' => 'Google',
+        'description' => 'Google',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('skivers_google_tool_admin'),
+        'access arguments' => array('administer skivers_google_tools_admin module'),
+        'type' => MENU_NORMAL_ITEM,
+    );
+    return $items;
+}
+
+function skivers_google_tool_init()
+{
+    drupal_add_js("skivers_google_tool_code ='" . variable_get('skivers_google_tool_code', 'Error Code') . "';", array('type' => 'inline', 'scope' => 'header'));
+    drupal_add_js(drupal_get_path('module', 'skivers_google_tool') . '/js/skivers_google_tool.js', array('scope' => 'footer'));
+//    drupal_add_css(drupal_get_path('module', 'skivers_google_tool') . '/css/skivers_google_tool.css');
+}
+
+function skivers_google_tool_admin()
+{
+    $form = array();
+
+    $form['skivers_google_tool_title'] = array(
+    );
+    $form['skivers_google_tool_code'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Enter Your Code'),
+        '#default_value' => variable_get('skivers_google_tool_code', 'Enter Your Code'),
+        '#size' => 60,
+        '#maxlength' => 125,
+        '#description' => t(""),
+        '#required' => TRUE,
+    );
+    return system_settings_form($form);
+}
+
+function skivers_google_tool_preprocess_page(&$vars)
+{
+    $vars['page_top'] .= '<div class="fullscreen"><p>Here is my div content!!</p></div>';
+}
