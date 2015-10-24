@@ -1,5 +1,5 @@
 name = Skivers Google Stuff
-description = Google tool. <a href="http://www.skivers.co.uk">Skivers LTD</a>
+description = Google tool <a href="http://www.skivers.co.uk">Skivers LTD</a>
 ;dependencies[] =
 package = SKIVERS
 version = "7.x-0.1"

@@ -35,7 +35,7 @@ function skivers_google_tool_admin()
     );
     $form['skivers_google_tool_code'] = array(
         '#type' => 'textfield',
-        '#title' => t('Enter Your Code'),
+        '#title' => t('Enter Your  Code'),
         '#default_value' => variable_get('skivers_google_tool_code', 'Enter Your Code'),
         '#size' => 60,
         '#maxlength' => 125,
